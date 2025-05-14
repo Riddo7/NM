@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Obstacle Avoidance Robot Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { padding: 20px; background: #f8f9fa; }
+    .status-box { font-size: 1.5rem; margin-top: 10px; }
+    .sensor { font-size: 2rem; color: #007bff; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1 class="text-center mb-4">Obstacle Avoidance car Dashboard</h1>
+
+    <div class="card p-3">
+      <h3>📌 Project Description</h3>
+      <p>This car uses an ultrasonic sensor to detect obstacles and automatically turns to avoid collisions. It is controlled using a Raspberry Pi and Python, and this dashboard shows the current status.</p>
+    </div>
+
+    <div class="card mt-4 p-3">
+      <h3>📡 Live Sensor Data</h3>
+      <p>Distance to Obstacle: <span id="distance" class="sensor">-- cm</span></p>
+      <p class="status-box">car Status: <span id="status">Idle</span></p>
+    </div>
+
+    <div class="card mt-4 p-3">
+      <h3>📷 Robot Images or Videos</h3>
+      <img src="robot.jpg" class="img-fluid" alt="Your Robot Here">
+      <!-- Replace with an image or video of your robot -->
+    </div>
+  </div>
+
+  <script>
+    // Simulated data update (replace with real-time Flask API calls if needed)
+    function updateDashboard() {
+      const randomDist = Math.floor(Math.random() * 100); // simulate
+      document.getElementById("distance").innerText = `${randomDist} cm`;
+      document.getElementById("status").innerText = randomDist < 20 ? "Turning" : "Moving Forward";
+    }
+
+    setInterval(updateDashboard, 1000); // Update every second
+  </script>
+
+</body>
+</html>
